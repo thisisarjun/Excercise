@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style>
+		.circle : {
+			background-image:
+			       url('https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/14520367_1134320503326735_2197305679466014764_n.jpg?oh=42ad9d071a6f0991c613eae221be6f1c&oe=5878A2B9')
+		}
+
+	.preview img {
+	border: 4px solid #444;
+	padding: 1px;
+	width: 250px;
+}
+
+	</style>
+</head>
+<body>
+<header>
+<h2>MyForm</h2>
+</header>
+
+<div class="wrapper">
+
+	<div class="preview" align="center">
+		<img name="preview" src="/images/imgs/<%= req.param('pt') %>" alt="" onerror = "imerr()"/>
+	</div>
+
+
+<form action="/demo/sub2" method="post" enctype = "multipart/form-data">
+            <fieldset class="edit_profile">
+                <legend>Ex 2</legend>
+
+								<div>
+										<input type="text" name="texted" placeholder="enter your text here" />
+								</div>
+               <div class="fileUpload btn btn-primary">
+               <span>Upload</span>
+               <input id="imge" name="imge" type="file" class="upload" />
+               </div>
+                <input type="submit" name="submit" value="upload"/>
+            </fieldset>
+        </form>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+//javascript code to reload the page incase of any failure to laod the image.
+	if(typeof localStorage.count == 'undefined') {
+			localStorage.count = 0;
+	}
+	window.onload = function() {
+		localStorage.count = 1;
+	}
+	function imerr() {
+		console.log('reached here');
+		if(localStorage.count>0) {
+			location.reload();
+		}
+	}
+</script>
+</body>
+</html>
